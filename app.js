@@ -11,11 +11,17 @@
 // Declare packages used for this server file
 const express = require('express');
 require('dotenv').config();
-
+const path = require('path');
 
 // Setup server
 const app = express();
 
+// View engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// Static assets
+app.use(express.static(path.join(__dirname, 'materials/public')));
 
 /** Routes */
 // Homepage endpoint that when accessed will produce a random reading list for a week
