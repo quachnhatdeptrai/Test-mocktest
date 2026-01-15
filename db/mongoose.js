@@ -4,7 +4,11 @@ require('dotenv').config();
 // Provide your MongoDB Atlas connection string
 // Make sure to connect to the DB named 2025b_final_sid
 
-MONGODB_CONNECTION_STRING = 'mongodb+srv://minznhac:admin123@cluster0/2025b_final_s3982412?retryWrites=true&w=majority&appName=Cluster0'
+const MONGODB_CONNECTION_STRING = process.env.MONGODB_CONNECTION_STRING;
+
+if (!MONGODB_CONNECTION_STRING) {
+  throw new Error('Missing MONGODB_CONNECTION_STRING in environment.');
+}
 
 mongoose.connect(MONGODB_CONNECTION_STRING)
         .then(() => {console.log("Connected to MongoDB Atlas")})
