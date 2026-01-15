@@ -1,38 +1,80 @@
 <%- include('partials/head', { title: "Quach Nhat's Book Details" }) %>
 
 <!-- Header-->
-<header>
-    <img src="/images/logo.jpg" alt="logo" width="64" height="64">
-    <nav>
+<header class="site-header">
+    <img src="/images/logo.png" alt="logo" width="64" height="64">
+    <nav class="site-nav">
         <a href="/">Home Page</a>
     </nav>
 </header>
 
 <!-- Main content-->
-<main>
-    <section class="mb-5">
-        <!-- Book details-->
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h2 class="h5 card-title">Book Title Placeholder</h2>
-                <p class="card-text">This section will display the selected book details from the database.</p>
+<main class="book-page">
+    <nav class="breadcrumb-nav">
+        <img src="/images/logo.png" alt="logo" width="32" height="32">
+        <a href="/">Home Page</a>
+        <span class="breadcrumb-separator">›</span>
+        <span>Javascript The Definitive Guide</span>
+    </nav>
+
+    <section class="book-hero mb-5">
+        <div class="book-hero-image" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80');">
+            <div class="book-hero-content">
+                <h1>Javascript The Definitive Guide</h1>
+                <h2>By David Flanagan</h2>
+                <p>This is a comprehensive reference book that covers the JavaScript programming language in depth. It provides detailed explanations of JavaScript core features, including syntax, data types, functions, and objects, as well as advanced topics including closures, prototypes, and asynchronous programming.</p>
+                <span class="book-meta">TEXTBOOK | Published in 2011</span>
             </div>
         </div>
     </section>
 
     <!-- Related books in the same category -->
-    <section class="mb-4">
-        <p class="h6 text-uppercase text-muted">Related Books</p>
-        <ul class="list-group">
-            <li class="list-group-item">Related book placeholder #1</li>
-            <li class="list-group-item">Related book placeholder #2</li>
-            <li class="list-group-item">Related book placeholder #3</li>
-        </ul>
+    <section class="related-books mb-4">
+        <h3>Related Books</h3>
+        <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="related-card" style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80');">
+                    <div>
+                        <h4>Socratic Logic By Peter Kreeft</h4>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="related-card" style="background-image: url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=600&q=80');">
+                    <div>
+                        <h4>Software Engineering By Ian Sommerville</h4>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="related-card" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=600&q=80');">
+                    <div>
+                        <h4>Research Methodology By C.R. Kothari</h4>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="related-card" style="background-image: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=600&q=80');">
+                    <div>
+                        <h4>Data Structures and Algorithms Using Python By Rance D. Necaise</h4>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="related-card" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80');">
+                    <div>
+                        <h4>R Graphics Cookbook By Winston Chang</h4>
+                    </div>
+                </article>
+            </div>
+        </div>
     </section>
 
     <!-- Back button here -->
     
-    <button id="btn-back" class="btn btn-primary" onclick="window.history.back()">Back</button>
+    <div class="text-center">
+        <button id="btn-back" class="btn btn-primary btn-sm" onclick="window.history.back()">Back</button>
+    </div>
     
   </main>
     

@@ -1,37 +1,75 @@
 <%- include('partials/head', { title: "Quach Nhat's Weekly Readings" }) %>
 
 <!-- Header, the first section of the page-->
-<header>
+<header class="site-header">
     <img src="/images/logo.png" alt="logo" width="64" height="64">
-    <nav>
+    <nav class="site-nav">
         <a href="/">Home Page</a>
     </nav>
 </header>
 
 <!-- Main content -->
 <main class="flex-grow-1">
-    <section class="row align-items-center mb-5">
+    <section class="row g-4 align-items-start mb-5">
         <!-- Your profile-->
-        <aside id="profile" class="col-md-5 text-center text-md-start">
-            <img src="/images/profile.jpg" alt="Portrait of Quach Nhat" class="img-fluid rounded-3" height="250">
+        <aside id="profile" class="col-lg-4">
+            <div class="profile-card">
+                <div class="profile-avatar">
+                    <img src="/images/profile.jpg" alt="Portrait of Quach Nhat">
+                </div>
+                <p class="profile-greeting">Hi, I'm</p>
+                <h1 class="profile-name">Quach Nhat</h1>
+                <p class="profile-id">s3982412</p>
+                <p class="profile-email">s3982412@rmit.edu.vn</p>
+            </div>
         </aside>
-        <div class="col-md-7">
-            <div class="mb-4">
-                <span class="text-muted">Hi, I'm</span>
-                <h1>Quach Nhat</h1>
-            </div>
-            <div>
-                <h2>s3982412</h2>
-                <h2>s3982412@rmit.edu.vn</h2>
-            </div>
+        <div class="col-lg-8">
+            <!-- The reading list is shown here-->
+            <section id="reading-list">
+                <div class="reading-header">
+                    <h2 class="reading-title">Recommended <span>READING LIST</span></h2>
+                    <button class="btn btn-primary btn-sm">Refresh</button>
+                </div>
+                <p class="text-muted mb-4">Pick a title to explore details and related reads for the week.</p>
+
+                <div class="reading-day">
+                    <h3>Monday-Wednesday</h3>
+                    <article class="reading-card">
+                        <div class="reading-content">
+                            <a class="book-link" href="/book/javascript-the-definitive-guide">Javascript The Definitive Guide by David Flanagan</a>
+                            <p>This is a comprehensive reference book that covers the JavaScript programming language in depth. It provides detailed explanations of JavaScript core features, including syntax, data types, functions, and objects, as well as advanced topics including closures, prototypes, and asynchronous programming.</p>
+                            <span class="badge text-bg-light">TEXTBOOK</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=600&q=80" alt="Code on screen">
+                    </article>
+                </div>
+
+                <div class="reading-day">
+                    <h3>Thursday-Friday</h3>
+                    <article class="reading-card">
+                        <div class="reading-content">
+                            <a class="book-link" href="/book/ideas-of-a-university">Ideas of a University by John Henry Newman</a>
+                            <p>This is a work on the philosophy of education and the role of universities in society. Newman argues for the importance of a liberal education and the cultivation of the intellect, emphasizing the value of knowledge for its own sake.</p>
+                            <span class="badge text-bg-light">PHILOSOPHY</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80" alt="Library hallway">
+                    </article>
+                </div>
+
+                <div class="reading-day">
+                    <h3>Saturday-Sunday</h3>
+                    <article class="reading-card">
+                        <div class="reading-content">
+                            <a class="book-link" href="/book/the-lord-of-the-ring">The Lord of the Ring by J.R.R. Tokien</a>
+                            <p>The Lord of the Ring by J. R. R. Tolkien is an epic high-fantasy trilogy that follows the perilous journey of hobbit Frodo Baggins and his companions to destroy the One Ring, a powerful artifact sought by the dark lord Sauron, in a richly imagined world of adventure, courage, and friendship.</p>
+                            <span class="badge text-bg-light">NOVEL</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1473186578172-c141e6798cf4?auto=format&fit=crop&w=600&q=80" alt="Open book in the dark">
+                    </article>
+                </div>
+            </section>
         </div>
     </section>
-    
-    <!-- The reading list is shown here-->
-    <section id="reading-list">
-        <h2 class="h4">Recommended <b>READING LIST</b></h2>
-        <p class="text-muted">Pick a title to explore details and related reads for the week.</p>
-    </section> 
 </main>
     
  <!-- Footer -->
