@@ -28,45 +28,30 @@
             <section id="reading-list">
                 <div class="reading-header">
                     <h2 class="reading-title">Recommended <span>READING LIST</span></h2>
-                    <button class="btn btn-primary btn-sm">Refresh</button>
+                    <form method="post" action="/">
+                        <input type="hidden" name="listId" value="<%= listId %>">
+                        <button class="btn btn-primary btn-sm" type="submit" id="refresh-button">Refresh</button>
+                    </form>
                 </div>
                 <p class="text-muted mb-4">Pick a title to explore details and related reads for the week.</p>
 
-                <div class="reading-day">
-                    <h3>Monday-Wednesday</h3>
-                    <article class="reading-card">
-                        <div class="reading-content">
-                            <a class="book-link" href="/book/javascript-the-definitive-guide">Javascript The Definitive Guide by David Flanagan</a>
-                            <p>This is a comprehensive reference book that covers the JavaScript programming language in depth. It provides detailed explanations of JavaScript core features, including syntax, data types, functions, and objects, as well as advanced topics including closures, prototypes, and asynchronous programming.</p>
-                            <span class="badge text-bg-light">TEXTBOOK</span>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=600&q=80" alt="Code on screen">
-                    </article>
-                </div>
-
-                <div class="reading-day">
-                    <h3>Thursday-Friday</h3>
-                    <article class="reading-card">
-                        <div class="reading-content">
-                            <a class="book-link" href="/book/ideas-of-a-university">Ideas of a University by John Henry Newman</a>
-                            <p>This is a work on the philosophy of education and the role of universities in society. Newman argues for the importance of a liberal education and the cultivation of the intellect, emphasizing the value of knowledge for its own sake.</p>
-                            <span class="badge text-bg-light">PHILOSOPHY</span>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80" alt="Library hallway">
-                    </article>
-                </div>
-
-                <div class="reading-day">
-                    <h3>Saturday-Sunday</h3>
-                    <article class="reading-card">
-                        <div class="reading-content">
-                            <a class="book-link" href="/book/the-lord-of-the-ring">The Lord of the Ring by J.R.R. Tokien</a>
-                            <p>The Lord of the Ring by J. R. R. Tolkien is an epic high-fantasy trilogy that follows the perilous journey of hobbit Frodo Baggins and his companions to destroy the One Ring, a powerful artifact sought by the dark lord Sauron, in a richly imagined world of adventure, courage, and friendship.</p>
-                            <span class="badge text-bg-light">NOVEL</span>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1473186578172-c141e6798cf4?auto=format&fit=crop&w=600&q=80" alt="Open book in the dark">
-                    </article>
-                </div>
+                <% readingDays.forEach(function (dayItem) { %>
+                    <div class="reading-day">
+                        <h3><%= dayItem.day %></h3>
+                        <% if (dayItem.book) { %>
+                            <article class="reading-card">
+                                <div class="reading-content">
+                                    <a class="book-link" href="/book/<%= dayItem.book.slug %>"><%= dayItem.book.title %> by <%= dayItem.book.author %></a>
+                                    <p><%= dayItem.book.description %></p>
+                                    <span class="badge text-bg-light"><%= dayItem.category %></span>
+                                </div>
+                                <img src="<%= dayItem.book.image %>" alt="<%= dayItem.book.title %> cover">
+                            </article>
+                        <% } else { %>
+                            <p class="text-muted">No book available for this slot right now.</p>
+                        <% } %>
+                    </div>
+                <% }) %>
             </section>
         </div>
     </section>
@@ -74,3 +59,14 @@
     
  <!-- Footer -->
 <%- include('partials/footer') %>
+<script>
+    const refreshButton = document.getElementById('refresh-button');
+    if (refreshButton) {
+        refreshButton.addEventListener('click', () => {
+            refreshButton.textContent = 'Refreshing...';
+            refreshButton.disabled = true;
+        });
+    }
+</script>
+</body>
+</html>

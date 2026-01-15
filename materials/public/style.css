@@ -248,11 +248,17 @@ body {
   margin: 0;
 }
 
+.related-card a{
+    text-decoration: none;
+    color: white;
+}
+
+
 footer {
   color: #6b7280;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 992px) {
   .site-header {
     flex-direction: column;
   }
@@ -281,5 +287,14 @@ footer {
 
   .book-hero-content h1 {
     font-size: 1.5rem;
+  }
+
+  .related-books > div{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .related-books > div > div {
+    width: 100%;
   }
 }

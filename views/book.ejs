@@ -14,16 +14,16 @@
         <img src="/images/logo.png" alt="logo" width="32" height="32">
         <a href="/">Home Page</a>
         <span class="breadcrumb-separator">›</span>
-        <span>Javascript The Definitive Guide</span>
+        <a href="/book/<%= book.slug %>"><%= book.title %></a>
     </nav>
 
     <section class="book-hero mb-5">
-        <div class="book-hero-image" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80');">
+        <div class="book-hero-image" style="background-image: url('<%= book.image %>');">
             <div class="book-hero-content">
-                <h1>Javascript The Definitive Guide</h1>
-                <h2>By David Flanagan</h2>
-                <p>This is a comprehensive reference book that covers the JavaScript programming language in depth. It provides detailed explanations of JavaScript core features, including syntax, data types, functions, and objects, as well as advanced topics including closures, prototypes, and asynchronous programming.</p>
-                <span class="book-meta">TEXTBOOK | Published in 2011</span>
+                <h1><%= book.title %></h1>
+                <h2>By <%= book.author %></h2>
+                <p><%= book.description %></p>
+                <span class="book-meta"><%= book.category %> | Published in <%= book.year %></span>
             </div>
         </div>
     </section>
@@ -32,41 +32,18 @@
     <section class="related-books mb-4">
         <h3>Related Books</h3>
         <div class="row g-3">
+        <% if (relatedBooks.length === 0) { %>
+            <p class="text-muted">No related books found.</p>
+        <% } %>
+        <% relatedBooks.forEach(function (relatedBook) { %>
             <div class="col-12 col-sm-6 col-lg-4">
-                <article class="related-card" style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80');">
+                <article class="related-card" style="background-image: url('<%= relatedBook.image %>');">
                     <div>
-                        <h4>Socratic Logic By Peter Kreeft</h4>
+                        <h4><a href="/book/<%= relatedBook.slug %>"><%= relatedBook.title %> By <%= relatedBook.author %></a></h4>
                     </div>
                 </article>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <article class="related-card" style="background-image: url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=600&q=80');">
-                    <div>
-                        <h4>Software Engineering By Ian Sommerville</h4>
-                    </div>
-                </article>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <article class="related-card" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=600&q=80');">
-                    <div>
-                        <h4>Research Methodology By C.R. Kothari</h4>
-                    </div>
-                </article>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <article class="related-card" style="background-image: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=600&q=80');">
-                    <div>
-                        <h4>Data Structures and Algorithms Using Python By Rance D. Necaise</h4>
-                    </div>
-                </article>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <article class="related-card" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80');">
-                    <div>
-                        <h4>R Graphics Cookbook By Winston Chang</h4>
-                    </div>
-                </article>
-            </div>
+        <% }) %>
         </div>
     </section>
 
@@ -80,3 +57,5 @@
     
  <!-- Footer -->
 <%- include('partials/footer') %>
+</body>
+</html>
